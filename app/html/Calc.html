@@ -1,0 +1,49 @@
+<div id="calcFormIO">
+	 <script type='text/javascript'>
+   		 /*window.onload = function () {
+      		Formio.createForm(document.getElementById('calcFormIO'), 'https://gtdcbfvemyajgpb.form.io/lfdemocalc'); 
+			console.log('after createForm');		
+		}*/
+  	</script>
+	<script type='text/javascript'>
+		//Formio.createForm(document.getElementById('calcFormIO'), calcForm);
+		Formio.createForm(document.getElementById('calcFormIO'), 'https://gtdcbfvemyajgpb.form.io/lfdemocalc');
+		
+		
+		/*var url = 'https://together.azure-api.net/democalc/subtract?a=';
+        url += form.submission.data.a;
+        url += '&b=';
+        url += form.submission.data.b;
+        
+        //Send Token
+		console.log('vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv');
+		console.log('FORM IO');
+		
+		//Get token from cached
+		var apiToken = angular.element(document.getElementById('calcFormIO')).scope().getToken2();
+		console.log('Send token to API  = '+apiToken);
+		
+		//Very Important for Token for use API
+		url += '&id_token='+apiToken;
+        console.log('URL before sending = '+url);
+		console.log('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^');
+        $.ajax({
+            url: url,
+            beforeSend: function(xhrObj){
+                //Request headers
+            },
+            type: "GET"
+        }).done(function(data){
+            form.submission = { data: {
+                a: form.submission.data.a,  
+                b: form.submission.data.b,
+                result: data.value
+                }};  
+        }).fail(function(err){
+            console.log(err)
+        });*/
+	</script>
+</div>
+<div id="formio">
+	
+</div>

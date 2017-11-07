@@ -1,0 +1,77 @@
+
+<div>
+	test api
+	
+	<script type='text/javascript'>
+
+		console.log('Call api html');
+		console.log('-------------------------------------');
+		
+		//Error getToken3 is not a function
+		//var apiTokenAPI = angular.element(document.getElementById('apiFormIO')).scope().getTokenAPI();
+		//console.log('Send token to API  = '+apiTokenAPI);
+		
+		var apiTokenHome = angular.element(document.getElementById('AppID')).scope().getTokenHome();
+		console.log('Token Home  = '+apiTokenHome);
+		
+		var url = 'https://together.azure-api.net/accesscdn/CDNToken?id_token='+apiTokenHome;
+		//var url = 'https://tst-demo2-apimgts.azure-api.net/accesscdn/CDNToken?id_token='+apiTokenHome;
+		
+		
+		var testIframe = document.getElementById("cdnIframe");
+		testIframe.src = url;
+		/*$.ajax({
+            url: url,
+            beforeSend: function(xhrObj){
+                //Request headers
+            },
+            type: "GET",
+			success: function (data, textStatus, jqXHR){
+				console.log('function success');
+				console.log('-------------------------------');
+				console.log('data = '+data);
+				console.log('data redirect = '+data.redirect);
+				console.log('textStatus = '+textStatus);
+				console.log('jqXHR = '+jqXHR);
+			},
+			error: function(xhr, textStatus, errorThrown, response, status, error) { 
+			
+				console.log('xhr = '+xhr);
+				console.log('xhr text'+xhr.responseText);
+				console.log('Error!  Status = ' + xhr.status);
+				console.log('textStatus = '+textStatus);
+				console.log('errorThrown = '+errorThrown);
+				console.log('status = '+status);
+				console.log('error = '+error);
+				console.log('response = '+response);
+				
+				
+				var apiToken = angular.element(document.getElementById('apiFormIO')).scope().getTokenAPI();
+				console.log('debug token  = '+apiToken);
+				
+				//------------- Create Iframe ------------------
+				var cdnURL = "https://together.azure-api.net/accesscdn/CDNToken?id_token="+apiToken;
+				
+				//var cdnIfrm = document.createElement("iframe");
+				//cdnIfrm.id = "cdnIframe";
+				//cdnIfrm.setAttribute("src",cdnURL);
+				//cdnIfrm.style.width = "640px";
+				//cdnIfrm.style.height = "480px";
+				//document.getElementById("apiFormIO").appendChild(cdnIfrm);
+				
+				
+				//document.getElementById("cdnIframe").location = cdnURL;
+				
+				var testIframe = document.getElementById("cdnIframe");
+				testIframe.src = cdnURL;
+			},
+       });*/
+		console.log('-------------------------------------');
+		
+	</script>
+</div>
+<div id="apiFormIO">
+	<iframe  id="cdnIframe" width="1025" height="350" sandbox="allow-same-origin allow-scripts allow-popups allow-forms">
+	
+	</iframe>
+</div>
