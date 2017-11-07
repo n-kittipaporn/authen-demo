@@ -1,0 +1,62 @@
+<html>
+<head>
+   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://unpkg.com/formiojs@latest/dist/formio.full.min.css'>
+    <script src='https://unpkg.com/formiojs@2.17.6/dist/formio.full.min.js'></script>
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+</head>
+
+
+
+<body>
+<div class="container bg-faded">
+   <div class="row">
+        <div class="col-12" id="formio"></div>
+    </div>
+ </div>
+
+ 
+<script type='text/javascript'>
+  window.onload = function() {    
+       var form =(function() {
+            var json = null;
+            $.ajax({
+                'async': false,
+                'global': false,
+                'url': "json/form.json",
+                'dataType': "json",
+                'success': function (data) {
+                    json = data;
+                }
+            });
+            return json;
+        })();
+       
+    Formio.createForm(document.getElementById('formio'), form).then(function(instance) {
+      instance.on('submit', function(submission) {
+        //YOUR URL API that YOU HAVE CREATED PLACE in var url     
+        var url="https://tst-demo-apimgt.azure-api.net/";        
+          url+=submission.data.oper;
+          url+='/';
+          url+=submission.data.a;
+          url+='/';
+          url+=submission.data.b;
+          $.ajax({
+            url: url,             
+            type: "GET"
+          }).done(function(data) {          
+            $('[name=data\\[result\\]]').val(data);
+            console.log(data);
+          }).fail(function(err) {
+            console.log(err)
+          });
+        });
+    });   
+  };
+</script>
+
+</body>
+</html>
